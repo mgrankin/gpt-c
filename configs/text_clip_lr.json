@@ -1,0 +1,33 @@
+{
+    "layers": 12,
+    "d_model": 512,
+    "n_heads": 8,
+    "rotary_dims": 16,
+  
+    "batch_size": 32,
+    "gradient_accumulation_steps": 1,
+  
+    "warmup_steps": 3000,
+    "anneal_steps": 300000,
+    "lr": 1.2e-3,
+    "end_lr": 1.2e-4,
+    "weight_decay": 0.1,
+    "total_steps": 350000,
+    
+    "bucket": "mgrankin",
+    "model_dir": "text_clip_r16_lr10",
+  
+    "train_set": "pile_clip.train.index",
+    "val_set": {
+      "pile": "pile_clip.val.index"
+    },
+  
+    "val_batches": 100,
+    "val_every": 500,
+    "ckpt_every": 500,
+    "keep_every": 10000,
+  
+    "name": "text_clip_lr10",
+    "wandb_project": "gpt-c",
+    "comment": ""
+  }
