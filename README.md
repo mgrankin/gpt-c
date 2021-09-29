@@ -7,11 +7,12 @@ Text CLIP is a transformer with triangular attention matrix. It makes N vectors 
 
 ### The Results
 
-All models were trained for 350k steps.
-Validation loss are 
-Plain GPT with original tokenizer - 2.301
-Plain GPT with tokenizer from CLIP - 2.39
-GPT-C model - 
+| Model  | Validation loss | steps |
+| ------------- | ------------- | ------------- |
+| Plain GPT with original tokenizer  | 2.301  | 350k |
+| Plain GPT with tokenizer from CLIP  | 2.39  | 350k |
+| GPT-C model  | 2.40  | 283k |
+
 
 wandb runs https://wandb.ai/grankin/gpt-c
 
