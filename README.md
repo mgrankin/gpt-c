@@ -1,8 +1,8 @@
 # gpt-c
-GPT-C - a GPT trained with additional CLIP supervision. 
+# GPT-C - a GPT trained with additional CLIP supervision. 
 We assume a lots of visual information. These assumption are crucial to text understanding but they appear in text quite rare. The CLIP network was trained to produce similar vectors from text for things that do have visual similarity. CLIP network has been trained that “rose” is not that far from “pink” and that “square” is a case of “rectangle” and many more. The idea is to add additional CLIP supervision in GPT training - the GPT-C model.
 
-Upgrading CLIP
+# Upgrading CLIP
 Text CLIP is a transformer with triangular attention matrix. It makes N vectors for sequence lenght of N tokens. Because of that, similar to GPT, K-th output only depends on K first tokens. It’s almost what we need to add to GPT. There are two obstacles. First - positional encoding, in CLIP it’s absolute positional encoding. This is not flexible for our purpose, RoPE would be great. Second - special “start of text”, “end of text” tokens. The CLIP network was trained to make relevant output only in place of the special “end of text" token. We need it to make sense for each output. I trained the upgraded text CLIP using the original CLIP for supervision. It trained for 350k steps till 0.007 MSE loss on validation set.
 
 ### The Results
@@ -92,7 +92,7 @@ echo "set-option -g default-shell /bin/zsh" >>  .tmux.conf.local
 ```
 
 Run learning inside tmux, wont crash if ssh fail
-```
+```bash
 tmux attach-session -t gpt || tmux new-session -s gpt /bin/zsh 
 
 git config --global credential.helper store
@@ -104,9 +104,10 @@ cd mesh-transformer-jax-clip
 pip install --upgrade pip
 pip install -r requirements.txt
 pip install "jax[tpu]>=0.2.19" -f https://storage.googleapis.com/jax-releases/libtpu_releases.html
+```
 
 Train baseline models
-```
+```bash
 cd 
 cd mesh-transformer-jax-clip
 python3 device_train.py --config=../gpt-c/configs/162M_roto_8.json 
@@ -114,14 +115,14 @@ python3 device_train.py --config=../gpt-c/configs/162M_baseline.json
 ```
 
 Train text CLIP
-```
+```bash
 cd
 cd gpt-c/
 python3 clip_device_train.py --config=./configs/text_clip_lr.json
 ```
 
 Train the main model
-```
+```bash
 cd 
 cd gpt-c
 pip install .
