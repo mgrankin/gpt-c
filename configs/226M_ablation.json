@@ -1,5 +1,5 @@
 {
-    "layers": 12,
+    "layers": 17,
     "d_model": 768,
     "n_heads": 8,
     "n_vocab": 50400,
@@ -7,8 +7,6 @@
     "pe": "rotary",
     "pe_rotary_dims": 64,
   
-    "clip": true,
-
     "seq": 2048,
     "cores_per_replica": 8,
     "per_replica_batch": 64,
@@ -24,7 +22,7 @@
     "tpu_size": 8,
   
     "bucket": "mgrankin",
-    "model_dir": "GPT_162M_start",
+    "model_dir": "GPT_226M_ablation",
   
     "train_set": "pile_clip.train.index",
     "val_set": {
@@ -45,7 +43,7 @@
     "ckpt_every": 500,
     "keep_every": 10000,
   
-    "name": "GPT_162M_start",
+    "name": "GPT_226M_ablation",
     "wandb_project": "gpt-c",
     "comment": ""
   }

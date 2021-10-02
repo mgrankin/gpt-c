@@ -12,7 +12,9 @@ Text CLIP is a transformer with triangular attention matrix. It makes N vectors 
 | Plain GPT with original tokenizer  | 2.301  | 350k |
 | Plain GPT with tokenizer from CLIP  | 2.39  | 350k |
 | GPT-C model  | 2.40  | 283k |
+| GPT ablation (+63,5M parameters)  | 2.40  | 283k |
 
+63428097
 
 wandb runs https://wandb.ai/grankin/gpt-c
 
