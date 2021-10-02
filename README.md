@@ -67,12 +67,12 @@ Create and connect to tpu
 ```bash
 gcloud alpha compute tpus tpu-vm delete tpu1
 
-gcloud alpha compute tpus tpu-vm create tpustart_1 \
+gcloud alpha compute tpus tpu-vm create tpuabl_1 \
 --zone us-central1-a \
 --accelerator-type v3-8 \
 --version v2-alpha
 
-gcloud alpha compute tpus tpu-vm ssh tpustart_1 --zone us-central1-a
+gcloud alpha compute tpus tpu-vm ssh tpuabl_1 --zone us-central1-a
 ```
 
 Inside the tpu
@@ -109,12 +109,13 @@ pip install -r requirements.txt
 pip install "jax[tpu]>=0.2.19" -f https://storage.googleapis.com/jax-releases/libtpu_releases.html
 ```
 
-Train baseline models
+Train baseline and ablation models
 ```bash
 cd 
 cd mesh-transformer-jax-clip
 python3 device_train.py --config=../gpt-c/configs/162M_roto_8.json 
 python3 device_train.py --config=../gpt-c/configs/162M_baseline.json
+python3 device_train.py --config=../gpt-c/configs/226M_ablation.json
 ```
 
 Train text CLIP

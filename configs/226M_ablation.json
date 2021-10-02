@@ -1,5 +1,5 @@
 {
-    "layers": 17,
+    "layers": 22,
     "d_model": 768,
     "n_heads": 8,
     "n_vocab": 50400,
